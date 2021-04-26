@@ -6,4 +6,7 @@ public enum Money {
     private Money(double value) {
         this.value = value; }
 
+    public double getValue() {
+        return value;
+    }
 }

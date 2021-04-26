@@ -2,17 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa863f4c-0eda-4674-80ba-62035a2b1518" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/VendingMachine.iml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/vendingmachine/InventoryActions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/vendingmachine/WalletActions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/moneytype/Money.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/moneytype/Money.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/personnel/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/personnel/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/personnel/Technician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/personnel/Technician.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/vendingmachine/Wallet.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -25,6 +34,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../StudentWork-Solutions/IntroJava" />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
