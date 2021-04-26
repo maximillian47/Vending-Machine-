@@ -14,7 +14,7 @@ public class Wallet {
     //Constructor
     public Wallet(double balance, int nickelCount, int dimeCount, int quarterCount, int oneDollarCount, int fiveDollarCount, int tenDollarCount) {
         Balance = balance;
-        this.nickelCount = nickelCount;
+        setNickelCount(nickelCount);
         this.dimeCount = dimeCount;
         this.quarterCount = quarterCount;
         this.oneDollarCount = oneDollarCount;
