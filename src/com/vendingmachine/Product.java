@@ -1,11 +1,11 @@
 package com.vendingmachine;
 
-import com.moneytype.Money;
-
 public class Product {
     private int productID;
     private String productName;
     private double price;
+
+
 
     //Constructor
     public Product(int productID, String productName, double price) {
@@ -46,17 +46,23 @@ public class Product {
     }
 
     public void setPrice(double priceArg) throws IllegalArgumentException{
+        double truncatedPriceArg = Math.floor(priceArg * 100)/100;  //Truncate inputs to 2 decimal places
+
         int intPriceArg = (int) (priceArg*100);
         if ((priceArg>0.0) && (intPriceArg%5 == 0)) {  //Check to make sure price is divisible by 0.05 cents
-            this.price = priceArg;
+            this.price = truncatedPriceArg;
         } else {
             throw new IllegalArgumentException("Price must be more than 0.");
         }
     }
-}
-class TestProduct {
-    public static void main(String[] args) {
-        Product coke = new Product(1,"coke", 0.45);
-        System.out.println(coke);
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productID=" + productID +
+                ", productName='" + productName + '\'' +
+                ", price=" + price +
+                '}';
     }
+
 }
