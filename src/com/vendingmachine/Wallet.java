@@ -3,7 +3,7 @@ package com.vendingmachine;
 import com.moneytype.Money;
 
 public class Wallet {
-    private double Balance;
+    private double balance;
     private int nickelCount;
     private int dimeCount;
     private int quarterCount;
@@ -13,13 +13,13 @@ public class Wallet {
 
     //Constructor
     public Wallet(double balance, int nickelCount, int dimeCount, int quarterCount, int oneDollarCount, int fiveDollarCount, int tenDollarCount) {
-        Balance = balance;
+        setBalance(balance);
         setNickelCount(nickelCount);
-        this.dimeCount = dimeCount;
-        this.quarterCount = quarterCount;
-        this.oneDollarCount = oneDollarCount;
-        this.fiveDollarCount = fiveDollarCount;
-        this.tenDollarCount = tenDollarCount;
+        setDimeCount(dimeCount);
+        setQuarterCount(quarterCount);
+        setOneDollarCount(oneDollarCount);
+        setFiveDollarCount(fiveDollarCount);
+        setTenDollarCount(tenDollarCount);
     }
 
     //Getters & Setters
@@ -36,49 +36,54 @@ public class Wallet {
         return dimeCount;
     }
 
-    public void setDimeCount(int dimeCount) {
-        this.dimeCount = dimeCount;
+    public void setDimeCount(int dimeCountArg) {
+        dimeCountArg = (int)randomCash(1,10);
+        this.dimeCount = dimeCountArg;
     }
 
     public int getQuarterCount() {
         return quarterCount;
     }
 
-    public void setQuarterCount(int quarterCount) {
-        this.quarterCount = quarterCount;
+    public void setQuarterCount(int quarterCountArg) {
+        quarterCountArg = (int)randomCash(1,10);
+        this.quarterCount = quarterCountArg;
     }
 
     public int getOneDollarCount() {
         return oneDollarCount;
     }
 
-    public void setOneDollarCount(int oneDollarCount) {
-        this.oneDollarCount = oneDollarCount;
+    public void setOneDollarCount(int oneDollarCountArg) {
+        oneDollarCountArg = (int)randomCash(1,10);
+        this.oneDollarCount = oneDollarCountArg;
     }
 
     public int getFiveDollarCount() {
         return fiveDollarCount;
     }
 
-    public void setFiveDollarCount(int fiveDollarCount) {
-        this.fiveDollarCount = fiveDollarCount;
+    public void setFiveDollarCount(int fiveDollarCountArg) {
+        fiveDollarCountArg = (int)randomCash(1,10);
+        this.fiveDollarCount = fiveDollarCountArg;
     }
 
     public int getTenDollarCount() {
         return tenDollarCount;
     }
 
-    public void setTenDollarCount(int tenDollarCount) {
-        this.tenDollarCount = tenDollarCount;
+    public void setTenDollarCount(int tenDollarCountArg) {
+        tenDollarCountArg = (int)randomCash(1,10);
+        this.tenDollarCount = tenDollarCountArg;
     }
 
     public double getBalance() {
-        return Balance;
+        return balance;
     }
 
     public void setBalance(double _balance) {
 
-        Balance = _balance;
+        balance = _balance;
     }
 
     //Methods
