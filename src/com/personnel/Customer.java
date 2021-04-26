@@ -24,9 +24,7 @@ public class Customer implements WalletActions, InventoryActions {
         this.custBalance = _custBalance;
     }
 
-
     //Setter
-
     public void setNickelCount(int _nickelCount) {
         _nickelCount = (int)randomCash(1,10);
         this.nickelCount = _nickelCount;
@@ -42,29 +40,20 @@ public class Customer implements WalletActions, InventoryActions {
         this.quarterCount = _quarterCount;
     }
 
-
-
     public void setOneDollarCount(int _oneDollarCount) {
         _oneDollarCount = (int)randomCash(1,10);
         this.oneDollarCount = _oneDollarCount;
     }
-
-
 
     public void setFiveDollarCount(int _fiveDollarCount) {
         _fiveDollarCount = (int)randomCash(1,5);
         this.fiveDollarCount = _fiveDollarCount;
     }
 
-
-
     public void setTenDollarCount(int _tenDollarCount) {
         _tenDollarCount = (int)randomCash(1,3);
         this.tenDollarCount = _tenDollarCount;
     }
-
-
-
 
     private int randomCash(int _min, int _max){
         int randomVal = 0;
