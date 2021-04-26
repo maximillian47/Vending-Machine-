@@ -4,104 +4,73 @@ import com.moneytype.Money;
 
 public class Wallet {
     private double Balance;
-    private int NickelCount;
-    private int DimeCount;
-    private int QuarterCount;
-    private int OneDollarCount;
-    private int FiveDollarCount;
-    private int TenDollarCount;
+    private int nickelCount;
+    private int dimeCount;
+    private int quarterCount;
+    private int oneDollarCount;
+    private int fiveDollarCount;
+    private int tenDollarCount;
 
-    public int getNickelCount() {
-        return NickelCount;
+    //Constructor
+    public Wallet(double balance, int nickelCount, int dimeCount, int quarterCount, int oneDollarCount, int fiveDollarCount, int tenDollarCount) {
+        Balance = balance;
+        this.nickelCount = nickelCount;
+        this.dimeCount = dimeCount;
+        this.quarterCount = quarterCount;
+        this.oneDollarCount = oneDollarCount;
+        this.fiveDollarCount = fiveDollarCount;
+        this.tenDollarCount = tenDollarCount;
     }
 
-    public void setNickelCount(int _nickelCount) {
-        int max = 10;
-        int min = 1;
-        int randomVal = 0;
-        for (int j = 0; j < max; j++) {
-            randomVal = (int) Math.random() * (max - min + 1) + min;
-        }
-        _nickelCount = randomVal;
-        NickelCount = _nickelCount;
+    //Getters & Setters
+    public int getNickelCount() {
+        return nickelCount;
+    }
+
+    public void setNickelCount(int nickelCountArg) {
+        nickelCountArg = (int)randomCash(1,10);
+        this.nickelCount = nickelCountArg;
     }
 
     public int getDimeCount() {
-        return DimeCount;
+        return dimeCount;
     }
 
-    public void setDimeCount(int _dimeCount) {
-        int max = 10;
-        int min = 1;
-        int randomVal = 0;
-        for (int j = 0; j < max; j++) {
-            randomVal = (int) Math.random() * (max - min + 1) + min;
-        }
-        _dimeCount = randomVal;
-        DimeCount = _dimeCount;
+    public void setDimeCount(int dimeCount) {
+        this.dimeCount = dimeCount;
     }
 
     public int getQuarterCount() {
-        return QuarterCount;
+        return quarterCount;
     }
 
-    public void setQuarterCount(int _quarterCount) {
-        int max = 10;
-        int min = 1;
-        int randomVal = 0;
-        for (int j = 0; j < max; j++) {
-            randomVal = (int) Math.random() * (max - min + 1) + min;
-        }
-        _quarterCount = randomVal;
-        QuarterCount = _quarterCount;
+    public void setQuarterCount(int quarterCount) {
+        this.quarterCount = quarterCount;
     }
 
     public int getOneDollarCount() {
-        return OneDollarCount;
+        return oneDollarCount;
     }
 
-    public void setOneDollarCount(int _oneDollarCount) {
-        int max = 10;
-        int min = 1;
-        int randomVal = 0;
-        for (int j = 0; j < max; j++) {
-            randomVal = (int) Math.random() * (max - min + 1) + min;
-        }
-        _oneDollarCount = randomVal;
-        OneDollarCount = _oneDollarCount;
+    public void setOneDollarCount(int oneDollarCount) {
+        this.oneDollarCount = oneDollarCount;
     }
 
     public int getFiveDollarCount() {
-        return FiveDollarCount;
+        return fiveDollarCount;
     }
 
-    public void setFiveDollarCount(int _fiveDollarCount) {
-        int max = 10;
-        int min = 1;
-        int randomVal = 0;
-        for (int j = 0; j < max; j++) {
-            randomVal = (int) Math.random() * (max - min + 1) + min;
-        }
-        _fiveDollarCount = randomVal;
-        FiveDollarCount = _fiveDollarCount;
+    public void setFiveDollarCount(int fiveDollarCount) {
+        this.fiveDollarCount = fiveDollarCount;
     }
 
     public int getTenDollarCount() {
-        return TenDollarCount;
+        return tenDollarCount;
     }
 
-    public void setTenDollarCount(int _tenDollarCounter) {
-        int max = 3;
-        int min = 1;
-        int randomVal = 0;
-        for (int j = 0; j < max; j++) {
-            randomVal = (int) Math.random() * (max - min + 1) + min;
-        }
-        _tenDollarCounter = randomVal;
-        TenDollarCount = _tenDollarCounter;
+    public void setTenDollarCount(int tenDollarCount) {
+        this.tenDollarCount = tenDollarCount;
     }
-
-
 
     public double getBalance() {
         return Balance;
@@ -109,11 +78,17 @@ public class Wallet {
 
     public void setBalance(double _balance) {
 
-
-
-
         Balance = _balance;
     }
 
+    //Methods
+    private int randomCash(int _min, int _max){
 
+        int randomVal = 0;
+        for (int j = 0; j < _max; j++) {
+            randomVal = (int) Math.random() * (_max - _min + 1) + _min;
+        }
+        return randomVal;
+
+    }
 }
