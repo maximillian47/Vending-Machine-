@@ -12,7 +12,7 @@ public class VendingMachineClient {
         productNum = selectionInput.nextDouble();
         inventory1.selectProduct(productNum);
 
-
+        
 
 
     }

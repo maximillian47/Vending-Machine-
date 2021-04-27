@@ -1,11 +1,13 @@
 package com.vendingmachine;
 
+import com.personnel.Customer;
+
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 
-public class Inventory {
+public class Inventory implements VendingMachine{
     double productID;
 
     Inventory() {
@@ -38,6 +40,12 @@ public class Inventory {
     public void dispenseProduct() {
 
     }
+
+    public void refundChange(){
+//        if (moneyPaid < totalProductCost) {
+//            Customer.custbalance += moneyPaid;
+//        }
+    };
 
     public static void main(String[] args) {
         Inventory inventory1 = new Inventory();
