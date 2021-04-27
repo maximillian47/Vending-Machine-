@@ -31,22 +31,26 @@ public class Inventory implements VendingMachine{
         }
         return inventory;
     }
-    
-    
 
-    public void selectProduct(double _productID) {
-//        productID = Inventory.get(_productID);
+
+    public int getProductID() {
+
+    }
+    
+    @Override
+    public void selectProduct(int _productID) {
+        productID = Inventory.getProductID(_productID);
 
     }
 
-    public int get(int productID) {
 
-    }
 
+    @Override
     public void dispenseProduct() {
 
     }
 
+    @Override
     public void refundChange(){
 //        if (moneyPaid < totalProductCost) {
 //            Customer.custbalance += moneyPaid;
