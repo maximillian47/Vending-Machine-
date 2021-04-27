@@ -6,7 +6,6 @@ import com.vendingmachine.InventoryActions;
 import com.vendingmachine.WalletActions;
 
 public class Customer {
-    private String customerID;
     private double custBalance;
     private int nickelCount;
     private int dimeCount;
@@ -14,10 +13,12 @@ public class Customer {
     private int oneDollarCount;
     private int fiveDollarCount;
     private int tenDollarCount;
+    private double priceToPay;
 
     //Constructors
+
     public Customer() {
-        setBalance(this.custBalance);
+        setBalance();
     }
 
     //Setter
@@ -59,21 +60,32 @@ public class Customer {
         return randomVal;
     }
 
-    public void setBalance(double _balance) {
-        _balance = getDimeCount() * Money.DIME.getValue() + getNickelCount() * Money.NICKEL.getValue() + getQuarterCount()*Money.QUARTER.getValue()
-                    + getOneDollarCount()*Money.ONEDOLLAR.getValue() + getFiveDollarCount()*Money.FIVEDOLLAR.getValue() +
-                    getTenDollarCount() * Money.TENDOLLAR.getValue();
+    public void setBalance() {
+        double _balance = getDimeCount() * Money.DIME.getValue()
+                + getNickelCount() * Money.NICKEL.getValue()
+                + getQuarterCount() * Money.QUARTER.getValue()
+                + getOneDollarCount() * Money.ONEDOLLAR.getValue()
+                + getFiveDollarCount() * Money.FIVEDOLLAR.getValue()
+                + getTenDollarCount() * Money.TENDOLLAR.getValue();
         custBalance = _balance;
     }
 
-    public void shakeVendingMachine() {
 
+    public void pay(double priceToPayArg) {
+        double truncatedPriceArg = Math.floor(priceToPayArg * 100)/100;
+        if (truncatedPriceArg>0) {
+            priceToPay = truncatedPriceArg;
+        }
     }
 
-
-    public void pay(double priceToPay) {
-
+    public double getPriceToPay() {
+        return priceToPay;
     }
+
+    public double getBalance() {
+        return custBalance;
+    }
+
 
     //Getters
     public int getNickelCount() {
