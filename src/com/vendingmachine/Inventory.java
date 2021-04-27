@@ -28,7 +28,7 @@ public class Inventory {
         }
         return inventory;
     }
-
+    
 
     public static void main(String[] args) {
         Inventory inventory1 = new Inventory();
