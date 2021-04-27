@@ -31,9 +31,15 @@ public class Inventory implements VendingMachine{
         }
         return inventory;
     }
+    
+    
 
     public void selectProduct(double _productID) {
 //        productID = Inventory.get(_productID);
+
+    }
+
+    public int get(int productID) {
 
     }
 
