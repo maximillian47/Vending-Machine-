@@ -11,7 +11,6 @@ public class Inventory {
     }
 
 
-
     private static HashMap<Product, Integer> inventory = new HashMap<>();
     static { //Product is the Key, Quantity is Value
         inventory.put(new Product(1, "Coca-Cola", 2.50), 10);
@@ -28,12 +27,6 @@ public class Inventory {
         }
         return inventory;
     }
-//    public static <K, V> String getCurrentInventory(Map<K, V> products) {
-//        return products.entrySet()
-//                .stream()
-//                .map(e -> e.getKey() + " Quantity: " + e.getValue())
-//                .collect(Collectors.joining(", ", "{,", "}"));
-//    }
 
 
     public static void main(String[] args) {
