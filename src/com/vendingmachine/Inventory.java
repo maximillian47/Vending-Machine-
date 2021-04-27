@@ -1,14 +1,14 @@
 package com.vendingmachine;
-
 import com.personnel.Customer;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-
 public class Inventory implements VendingMachine{
-    double productID;
+
+
+    int selectedProductID;
 
     Inventory() {
 
@@ -32,15 +32,18 @@ public class Inventory implements VendingMachine{
         return inventory;
     }
 
+//    public void setProductID(int _productID) {
+//        selectedProductID = _productID;
+//    }
 
     public int getProductID() {
-
+        return selectedProductID;
     }
     
     @Override
     public void selectProduct(int _productID) {
-        productID = Inventory.getProductID(_productID);
-
+        _productID = getProductID();
+        selectedProductID = _productID;
     }
 
 
@@ -52,9 +55,9 @@ public class Inventory implements VendingMachine{
 
     @Override
     public void refundChange(){
-//        if (moneyPaid < totalProductCost) {
-//            Customer.custbalance += moneyPaid;
-//        }
+        if (Customer.getPriceToPay() < totalProductCost) {
+            Customer.getBalance() += moneyPaid;
+        }
     };
 
     public static void main(String[] args) {
