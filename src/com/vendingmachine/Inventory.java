@@ -1,8 +1,9 @@
 package com.vendingmachine;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.stream.Collectors;
+
 
 public class Inventory {
 
@@ -11,7 +12,7 @@ public class Inventory {
     }
 
 
-    private static HashMap<Product, Integer> inventory = new HashMap<>();
+    private static HashMap<Product, Integer> inventory = new LinkedHashMap<>();
     static { //Product is the Key, Quantity is Value
         inventory.put(new Product(1, "Coca-Cola", 2.50), 10);
         inventory.put(new Product(2, "Water", 1.00), 10);
