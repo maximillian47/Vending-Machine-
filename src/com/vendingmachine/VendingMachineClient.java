@@ -3,8 +3,17 @@ import java.util.*;
 
 public class VendingMachineClient {
     public static void main(String[] args) {
-        VendingMachine vm1 = new VendingMachine();
-        vm1.startupMenu();
+
+        Inventory inventory1 = new Inventory();
+
+
+        Scanner selectionInput = new Scanner(System.in);
+        double productNum;
+        productNum = selectionInput.nextDouble();
+        inventory1.selectProduct(productNum);
+
+
+
 
     }
 }

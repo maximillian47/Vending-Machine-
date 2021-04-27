@@ -64,7 +64,7 @@ public class Customer implements WalletActions, InventoryActions {
     }
 
     public void setBalance(double _balance) {
-        _balance = getDimeCount() * Money.DIME.getValue() + getNickelCount() * Money.NICKLE.getValue() + getQuarterCount()*Money.QUARTER.getValue()
+        _balance = getDimeCount() * Money.DIME.getValue() + getNickelCount() * Money.NICKEL.getValue() + getQuarterCount()*Money.QUARTER.getValue()
                     + getOneDollarCount()*Money.ONEDOLLAR.getValue() + getFiveDollarCount()*Money.FIVEDOLLAR.getValue() +
                     getTenDollarCount() * Money.TENDOLLAR.getValue();
         custBalance = _balance;

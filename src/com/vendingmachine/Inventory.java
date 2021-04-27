@@ -6,8 +6,9 @@ import java.util.Map;
 
 
 public class Inventory {
+    double productID;
 
-    private Inventory() {
+    Inventory() {
 
     }
 
@@ -29,6 +30,14 @@ public class Inventory {
         return inventory;
     }
 
+    public void selectProduct(double _productID) {
+//        productID = Inventory.get(_productID);
+
+    }
+
+    public void dispenseProduct() {
+
+    }
 
     public static void main(String[] args) {
         Inventory inventory1 = new Inventory();
