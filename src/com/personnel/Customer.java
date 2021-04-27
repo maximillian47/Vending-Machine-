@@ -5,8 +5,7 @@ import com.moneytype.Money;
 import com.vendingmachine.InventoryActions;
 import com.vendingmachine.WalletActions;
 
-public class Customer implements WalletActions, InventoryActions {
-    private String customerID;
+public class Customer {
     private double custBalance;
     private int nickelCount;
     private int dimeCount;
@@ -14,14 +13,12 @@ public class Customer implements WalletActions, InventoryActions {
     private int oneDollarCount;
     private int fiveDollarCount;
     private int tenDollarCount;
+    private double priceToPay;
 
     //Constructors
-    public Customer() {
-    }
 
-    public Customer(String _customerID, double _custBalance) {
-        this.customerID = _customerID;
-        this.custBalance = _custBalance;
+    public Customer() {
+        setBalance();
     }
 
     //Setter
@@ -63,31 +60,32 @@ public class Customer implements WalletActions, InventoryActions {
         return randomVal;
     }
 
-    public void setBalance(double _balance) {
-        _balance = getDimeCount() * Money.DIME.getValue() + getNickelCount() * Money.NICKEL.getValue() + getQuarterCount()*Money.QUARTER.getValue()
-                    + getOneDollarCount()*Money.ONEDOLLAR.getValue() + getFiveDollarCount()*Money.FIVEDOLLAR.getValue() +
-                    getTenDollarCount() * Money.TENDOLLAR.getValue();
+    public void setBalance() {
+        double _balance = getDimeCount() * Money.DIME.getValue()
+                + getNickelCount() * Money.NICKEL.getValue()
+                + getQuarterCount() * Money.QUARTER.getValue()
+                + getOneDollarCount() * Money.ONEDOLLAR.getValue()
+                + getFiveDollarCount() * Money.FIVEDOLLAR.getValue()
+                + getTenDollarCount() * Money.TENDOLLAR.getValue();
         custBalance = _balance;
     }
 
-    public void shakeVendingMachine() {
 
+    public void pay(double priceToPayArg) {
+        double truncatedPriceArg = Math.floor(priceToPayArg * 100)/100;
+        if (truncatedPriceArg>0) {
+            priceToPay = truncatedPriceArg;
+        }
     }
 
-    @Override
-    public void pay(double priceToPay) {
-
+    public double getPriceToPay() {
+        return priceToPay;
     }
 
-    @Override
     public double getBalance() {
         return custBalance;
     }
 
-    @Override
-    public void checkInventory() {
-
-    }
 
     //Getters
     public int getNickelCount() {
