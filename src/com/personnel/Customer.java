@@ -2,8 +2,6 @@ package com.personnel;
 
 
 import com.moneytype.Money;
-import com.vendingmachine.InventoryActions;
-import com.vendingmachine.WalletActions;
 
 public class Customer {
     private double custBalance;

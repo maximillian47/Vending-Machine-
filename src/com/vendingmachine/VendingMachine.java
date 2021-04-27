@@ -4,4 +4,6 @@ import com.personnel.Customer;
 
 public interface VendingMachine {
 
+    public void selectProduct();
+
 }
