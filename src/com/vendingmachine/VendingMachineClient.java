@@ -3,7 +3,8 @@ import java.util.*;
 
 public class VendingMachineClient {
     public static void main(String[] args) {
-//        VendingMachine vm1 = new VendingMachine();
-//        StartUpMenu.display();
+        VendingMachine vm1 = new VendingMachine();
+        vm1.startupMenu();
+
     }
 }
