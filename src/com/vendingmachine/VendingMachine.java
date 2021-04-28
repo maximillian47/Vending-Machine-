@@ -3,7 +3,7 @@ package com.vendingmachine;
 
 public interface VendingMachine {
 
-    void selectProduct();
+    Product selectProduct(int _selectedProductID);
     void dispenseProduct();
     void refundChange();
 
