@@ -8,13 +8,17 @@ import java.util.Map;
 public class Inventory implements VendingMachine{
 
 
-    private int selectedProductID;
     private double pricePaid;
+    private int selectedProductID;
+    private double customerRefund = 0;
 
-    Inventory() {
+    public Inventory() {
 
     }
 
+    public double getCustomerRefund() {
+        return customerRefund;
+    }
 
     private static HashMap<Integer, Product> inventory = new LinkedHashMap<>();
     static { //ProductID is the Key, Product is Value
@@ -45,40 +49,27 @@ public class Inventory implements VendingMachine{
     }
 
 
-
-
-//    public void setProductID(int _productID) {
-//        selectedProductID = _productID;
-//    }
-
-    public int getProductID() {
-        return selectedProductID;
-    }
-
     public void collectPay(double _pricePaid) {
         pricePaid = _pricePaid;
     }
 
 
-//    @Override
-//    public Product selectProduct(int _selectedProductID) {
-//        inventory.get();
-//        selectedProductID =getProductID();
-//    }
+    @Override
+    public Product selectProduct(int _selectedProductID) {
+        if (pricePaid < inventory.get(selectedProductID).getPrice()) {
+            customerRefund = pricePaid;
+            System.out.println("Insufficient fund, refund issued:" + getCustomerRefund());
+            return null;
+        } else {
+            stockQuantity.put(_selectedProductID, stockQuantity.get(_selectedProductID)-1);
+            return inventory.get(_selectedProductID); }
+    }
 
 
 
-//    @Override
-//    public void dispenseProduct() {
-//
-//    }
-//
-//    @Override
-//    public void refundChange(double pricePaid){
-//        if (pricePaid < totalProductCost) {
-//            Customer.getBalance() += moneyPaid;
-//        }
-//    };
+
+
+
 
     public static void main(String[] args) {
         Inventory inventory1 = new Inventory();
