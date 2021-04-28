@@ -1,0 +1,30 @@
+package com.vendingmachine;
+
+import com.personnel.Customer;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class CustomerTest {
+
+    private Customer cust1;
+
+
+    @Test
+    public void payThePricePositiveAmount() {
+        Customer cust1 = new Customer();
+        double expectedOutput = 5.95;
+        double actualValue = 5.95;
+        cust1.pay(actualValue);
+        assertEquals(expectedOutput, cust1.getPriceToPay(), .001);
+    }
+
+    @Test
+    public void payThePriceNegativeAmount() {
+        Customer cust2 = new Customer();
+        double expectedOutput = 0;
+        double actualValue = -1.95;
+        cust2.pay(actualValue);
+        assertEquals(expectedOutput, cust2.getPriceToPay(), .001);
+    }
+}
