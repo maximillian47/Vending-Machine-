@@ -10,11 +10,15 @@ public class Inventory implements VendingMachine{
 
     private double pricePaid;
     private int selectedProductID;
+    private double customerRefund = 0;
 
     public Inventory() {
 
     }
 
+    public double getCustomerRefund() {
+        return customerRefund;
+    }
 
     private static HashMap<Integer, Product> inventory = new LinkedHashMap<>();
     static { //ProductID is the Key, Product is Value
@@ -52,23 +56,27 @@ public class Inventory implements VendingMachine{
 
     @Override
     public Product selectProduct(int _selectedProductID) {
-        return inventory.get(_selectedProductID);
+        if (pricePaid < inventory.get(selectedProductID).getPrice()) {
+            customerRefund = pricePaid;
+            System.out.println("Insufficient fund, refund issued:" + getCustomerRefund());
+            return null;
+        } else {
+            stockQuantity.get(_selectedProductID);
+
+            return inventory.get(_selectedProductID); }
     }
 
 
 
     @Override
     public void dispenseProduct(int _selectedProductID) {
-        stockQuantity.get(_selectedProductID);
     }
 
 //    @Override
-    public void refundChange(double pricePaid){
+    public double refundChange(double _pricePaid){
 
-        if (pricePaid < inventory.get(selectedProductID).getPrice()) {
-
-        }
-    };
+        return pricePaid;
+    }
 
     public static void main(String[] args) {
         Inventory inventory1 = new Inventory();
