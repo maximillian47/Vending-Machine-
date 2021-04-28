@@ -10,6 +10,8 @@ public class VendingMachineClient {
         Inventory vendingInventory = new Inventory();
         Customer customer = new Customer();
 
+        System.out.println(customer.randomCash(15));
+
         System.out.println("Midlife Crisis Vending Machines!");
         vendingInventory.getInventory();
         System.out.println("\n");
