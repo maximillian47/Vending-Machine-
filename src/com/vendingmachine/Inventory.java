@@ -60,25 +60,25 @@ public class Inventory implements VendingMachine{
     }
 
 
-    @Override
-    public Product selectProduct(int _selectedProductID) {
-        inventory.get()
-        selectedProductID =getProductID();
-    }
+//    @Override
+//    public Product selectProduct(int _selectedProductID) {
+//        inventory.get();
+//        selectedProductID =getProductID();
+//    }
 
 
 
-    @Override
-    public void dispenseProduct() {
-
-    }
-
-    @Override
-    public void refundChange(double pricePaid){
-        if (pricePaid < totalProductCost) {
-            Customer.getBalance() += moneyPaid;
-        }
-    };
+//    @Override
+//    public void dispenseProduct() {
+//
+//    }
+//
+//    @Override
+//    public void refundChange(double pricePaid){
+//        if (pricePaid < totalProductCost) {
+//            Customer.getBalance() += moneyPaid;
+//        }
+//    };
 
     public static void main(String[] args) {
         Inventory inventory1 = new Inventory();
