@@ -31,8 +31,11 @@ public class Inventory implements VendingMachine{
     }
 
     public HashMap<Integer, Product>  getInventory() {
-        for (Map.Entry entry: inventory.entrySet()) {
-            System.out.println(entry.getKey() + " Quantity: " + entry.getValue());
+//        for (Map.Entry entry: inventory.entrySet()) {
+//            System.out.println(entry.getValue() + stockQuantity.);
+//        }
+        for (int i=1; i< inventory.size()+1; i++) {
+            System.out.println(inventory.get(i) + " [Quantity: "  + stockQuantity.get(i) + "]");
         }
         return inventory;
     }
@@ -63,6 +66,7 @@ public class Inventory implements VendingMachine{
         } else {
             stockQuantity.replace(_selectedProductID, stockQuantity.get(_selectedProductID)-1);
             System.out.println("You have purchased one " + inventory.get(_selectedProductID).getProductName());
+            System.out.println(stockQuantity.get(_selectedProductID) + " remaining.");
             return inventory.get(_selectedProductID); }
     }
 
