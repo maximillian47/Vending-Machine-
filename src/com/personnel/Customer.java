@@ -59,6 +59,10 @@ public class Customer {
         return priceToPay;
     }
 
+    public void updateBalance(double change){
+        custBalance = custBalance-change;
+    }
+
     public double getBalance() {
         return custBalance;
     }

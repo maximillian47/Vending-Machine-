@@ -27,26 +27,30 @@ public class VendingMachineClient {
                     customerPaid = Double.parseDouble(inputPayment.nextLine());
                     break;
                 } catch (NumberFormatException nfe) {
-                    System.out.println("Please input payment amount: ");
+                    System.out.println(" Please input payment amount: ");
 
                 }
             }
 
             vendingInventory.collectPay(customerPaid);
+            customer.pay(customerPaid);
+            System.out.println("You have " + customer.getPriceToPay() + " credit.");
 
-            System.out.println("You have " + customerPaid + " credit.");
-            System.out.println("Please make selection:");
+
             Scanner inputSelection = new Scanner(System.in);
-            try {
-                int productNum = (int) inputSelection.nextDouble();
-                vendingInventory.selectProduct(productNum);
-                customer.pay(customerPaid);
+            System.out.println("Please make selection:");
 
-            } catch (IllegalArgumentException iae) {
-                System.out.println(iae + "Please select a product.");
+            int productNum = 0;
+            while(true) {
+                try {
+                    productNum = Integer.parseInt(inputSelection.nextLine());
+                    break;
+                } catch (NumberFormatException nfe) {
+                    System.out.println(" Please select a product: ");
+                }
             }
-
-
+            vendingInventory.selectProduct(productNum);
+            customer.updateBalance(vendingInventory.getInventory().get(productNum).getPrice()); //subtract product price from custBalance
         } while (customer.getBalance() > 0);
     }
 }
