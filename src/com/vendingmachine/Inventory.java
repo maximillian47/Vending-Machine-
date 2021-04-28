@@ -52,8 +52,12 @@ public class Inventory implements VendingMachine{
     }
 
 
-    public void collectPay(double _pricePaid) {
-        pricePaid = _pricePaid;
+    public void collectPay(double _pricePaid) throws IllegalArgumentException{
+        if (_pricePaid > 0.0) {
+            pricePaid = _pricePaid;
+        } else {
+            throw new IllegalArgumentException("Please enter a positive amount to pay for the item...");
+        }
     }
 
 
@@ -67,6 +71,7 @@ public class Inventory implements VendingMachine{
             stockQuantity.replace(_selectedProductID, stockQuantity.get(_selectedProductID)-1);
             System.out.println("You have purchased one " + inventory.get(_selectedProductID).getProductName());
             System.out.println(stockQuantity.get(_selectedProductID) + " remaining.");
+            System.out.println();
             return inventory.get(_selectedProductID); }
     }
 
