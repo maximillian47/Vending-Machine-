@@ -9,15 +9,13 @@ public class Inventory implements VendingMachine{
 
 
     private double pricePaid;
-    
-    private double customerRefund = 0;
+
+
+
+    private double customerChange = 0;
 
     public Inventory() {
 
-    }
-
-    public double getCustomerRefund() {
-        return customerRefund;
     }
 
     private static HashMap<Integer, Product> inventory = new LinkedHashMap<>();
@@ -60,19 +58,24 @@ public class Inventory implements VendingMachine{
         }
     }
 
+    public double getCustomerChange() {
+        return customerChange;
+    }
 
     @Override
-    public Product selectProduct(int _selectedProductID) {
+    public void selectProduct(int _selectedProductID) {
         if (pricePaid < inventory.get(_selectedProductID).getPrice()) {
-            customerRefund = pricePaid;
-            System.out.println("Insufficient fund, refund issued:" + getCustomerRefund());
-            return null;
-        } else {
+            customerChange = pricePaid;
+            System.out.println("Insufficient fund, refund issued:" + getCustomerChange());
+
+        } else if (pricePaid>=inventory.get(_selectedProductID).getPrice()) {
             stockQuantity.replace(_selectedProductID, stockQuantity.get(_selectedProductID)-1);
+            customerChange = pricePaid - inventory.get(_selectedProductID).getPrice();
             System.out.println("You have purchased one " + inventory.get(_selectedProductID).getProductName());
             System.out.println(stockQuantity.get(_selectedProductID) + " remaining.");
+            System.out.println("Here is your change: $" + getCustomerChange());
             System.out.println();
-            return inventory.get(_selectedProductID); }
+           }
     }
 
 
