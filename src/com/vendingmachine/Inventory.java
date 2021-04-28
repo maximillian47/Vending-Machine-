@@ -8,10 +8,10 @@ import java.util.Map;
 public class Inventory implements VendingMachine{
 
 
-    private int selectedProductID;
     private double pricePaid;
+    private int selectedProductID;
 
-    Inventory() {
+    public Inventory() {
 
     }
 
@@ -45,16 +45,6 @@ public class Inventory implements VendingMachine{
     }
 
 
-
-
-//    public void setProductID(int _productID) {
-//        selectedProductID = _productID;
-//    }
-
-    public int getProductID() {
-        return selectedProductID;
-    }
-
     public void collectPay(double _pricePaid) {
         pricePaid = _pricePaid;
     }
@@ -62,21 +52,21 @@ public class Inventory implements VendingMachine{
 
     @Override
     public Product selectProduct(int _selectedProductID) {
-        inventory.get()
-        selectedProductID =getProductID();
+        return inventory.get(_selectedProductID);
     }
 
 
 
     @Override
-    public void dispenseProduct() {
-
+    public void dispenseProduct(int _selectedProductID) {
+        stockQuantity.get(_selectedProductID);
     }
 
-    @Override
+//    @Override
     public void refundChange(double pricePaid){
-        if (pricePaid < totalProductCost) {
-            Customer.getBalance() += moneyPaid;
+
+        if (pricePaid < inventory.get(selectedProductID).getPrice()) {
+
         }
     };
 
