@@ -31,15 +31,16 @@ public class VendingMachineClient {
 
                 }
             }
-            customer.pay(customerPaid);
+
             vendingInventory.collectPay(customerPaid);
 
-            System.out.println("You have " + customer.getPriceToPay() + " credit.");
+            System.out.println("You have " + customerPaid + " credit.");
             System.out.println("Please make selection:");
             Scanner inputSelection = new Scanner(System.in);
             try {
                 int productNum = (int) inputSelection.nextDouble();
                 vendingInventory.selectProduct(productNum);
+                customer.pay(customerPaid);
 
             } catch (IllegalArgumentException iae) {
                 System.out.println(iae + "Please select a product.");
