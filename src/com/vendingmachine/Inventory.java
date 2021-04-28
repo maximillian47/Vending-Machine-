@@ -61,21 +61,19 @@ public class Inventory implements VendingMachine{
             System.out.println("Insufficient fund, refund issued:" + getCustomerRefund());
             return null;
         } else {
-            stockQuantity.put(_selectedProductID, stockQuantity.get(_selectedProductID)+1);
+            stockQuantity.put(_selectedProductID, stockQuantity.get(_selectedProductID)-1);
             return inventory.get(_selectedProductID); }
     }
 
 
 
-    @Override
-    public void dispenseProduct(int _selectedProductID) {
-    }
+
 
 //    @Override
-    public double refundChange(double _pricePaid){
-
-        return pricePaid;
-    }
+//    public double refundChange(double _pricePaid){
+//
+//        return pricePaid;
+//    }
 
     public static void main(String[] args) {
         Inventory inventory1 = new Inventory();
