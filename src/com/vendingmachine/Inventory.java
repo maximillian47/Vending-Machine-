@@ -9,7 +9,7 @@ public class Inventory implements VendingMachine{
 
 
     private double pricePaid;
-    private int selectedProductID;
+    
     private double customerRefund = 0;
 
     public Inventory() {
@@ -56,12 +56,13 @@ public class Inventory implements VendingMachine{
 
     @Override
     public Product selectProduct(int _selectedProductID) {
-        if (pricePaid < inventory.get(selectedProductID).getPrice()) {
+        if (pricePaid < inventory.get(_selectedProductID).getPrice()) {
             customerRefund = pricePaid;
             System.out.println("Insufficient fund, refund issued:" + getCustomerRefund());
             return null;
         } else {
             stockQuantity.replace(_selectedProductID, stockQuantity.get(_selectedProductID)-1);
+            System.out.println("You have purchased one " + inventory.get(_selectedProductID).getProductName());
             return inventory.get(_selectedProductID); }
     }
 
