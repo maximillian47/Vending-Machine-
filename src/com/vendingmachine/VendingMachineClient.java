@@ -5,44 +5,46 @@ import java.util.*;
 
 public class VendingMachineClient {
     public static void main(String[] args) {
-        Scanner selectionInput = new Scanner(System.in);
+
 
         Inventory vendingInventory = new Inventory();
         Customer customer = new Customer();
 
-        System.out.println(customer.randomCash(15));
 
         System.out.println("Midlife Crisis Vending Machines!");
         vendingInventory.getInventory();
         System.out.println("\n");
 
-        System.out.println("Customer Wallet Balance: " + customer.getBalance());
+        System.out.println("Customer Wallet Balance: $" + customer.getBalance());
 
 
         double customerPaid = 0;
-
+        Scanner inputPayment = new Scanner(System.in);
+        System.out.println("Please input payment amount: ");
         while (true) {
-            System.out.println("Please input payment amount: ");
 
             try {
-                customerPaid = Double.parseDouble(selectionInput.next());
+                customerPaid = Double.parseDouble(inputPayment.nextLine());
                 break;
-            } catch (InvalidSelectionException ise) {
+            } catch (NumberFormatException nfe) {
                 System.out.println("Please input payment amount: ");
+
             }
         }
-            customer.pay(customerPaid);
-            System.out.println("You have " + customer.getPriceToPay() + " credit.");
-            System.out.println("Please make selection:");
+        customer.pay(customerPaid);
+        vendingInventory.collectPay(customerPaid);
 
-            try {
-                int productNum = (int) selectionInput.nextDouble();
-                vendingInventory.selectProduct(productNum);
+        System.out.println("You have " + customer.getPriceToPay() + " credit.");
+        System.out.println("Please make selection:");
+        Scanner inputSelection = new Scanner(System.in);
+        try {
+            int productNum = (int) inputSelection.nextDouble();
+            vendingInventory.selectProduct(productNum);
 
-            } catch (IllegalArgumentException iae) {
-                System.out.println(iae + "Please select a product.");
-            }
-            
+        } catch (IllegalArgumentException iae) {
+            System.out.println(iae + "Please select a product.");
+        }
+
 
 
     }
