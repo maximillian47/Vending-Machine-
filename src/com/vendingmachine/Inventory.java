@@ -69,11 +69,7 @@ public class Inventory implements VendingMachine{
 
 
 
-//    @Override
-//    public double refundChange(double _pricePaid){
-//
-//        return pricePaid;
-//    }
+
 
     public static void main(String[] args) {
         Inventory inventory1 = new Inventory();
