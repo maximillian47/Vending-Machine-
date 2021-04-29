@@ -29,13 +29,13 @@ public class Inventory implements VendingMachine{
     }
 
     public HashMap<Integer, Product>  getInventory() {
-//        for (Map.Entry entry: inventory.entrySet()) {
-//            System.out.println(entry.getValue() + stockQuantity.);
-//        }
+        return inventory;
+    }
+
+    public void displayInventory() {
         for (int i=1; i< inventory.size()+1; i++) {
             System.out.println(inventory.get(i) + " [Quantity: "  + stockQuantity.get(i) + "]");
         }
-        return inventory;
     }
 
     private HashMap<Integer, Integer> stockQuantity = new LinkedHashMap<>();
@@ -83,10 +83,10 @@ public class Inventory implements VendingMachine{
     }
 
 
-    public static void main(String[] args) {
-        Inventory inventory1 = new Inventory();
-        inventory1.getInventory();
-    }
+//    public static void main(String[] args) {
+//        Inventory inventory1 = new Inventory();
+//        inventory1.getInventory();
+//    }
 
 
 }

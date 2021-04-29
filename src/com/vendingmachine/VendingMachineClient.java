@@ -12,7 +12,8 @@ public class VendingMachineClient {
 
         do {
             System.out.println("Midlife Crisis Vending Machines!");
-            vendingInventory.getInventory();
+//            vendingInventory.getInventory();
+            vendingInventory.displayInventory();
             System.out.println("\n");
 
             System.out.println("Customer Wallet Balance: $" + customer.getBalance());
