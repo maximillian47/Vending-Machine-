@@ -27,7 +27,7 @@ public class VendingMachineTest {
     public void selectProductCustomerInsufficientPay() {
         vendingMachine1.setPricePaid(1);
         vendingMachine1.selectProduct(1);
-        double expectedCustomerChange = 1;
+        double expectedCustomerChange = -1;
 
         assertEquals(expectedCustomerChange,vendingMachine1.getCustomerChange(), 0.001);
     }

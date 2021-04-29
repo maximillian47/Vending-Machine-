@@ -38,7 +38,12 @@ public class VendingMachineClient {
                 }
             }
             vendingInventory.selectProduct(productNum);
-            customer.updateBalance(vendingInventory.getInventory().get(productNum).getPrice()); //subtract product price from custBalance
+            double custPaid = vendingInventory.getCustomerChange();
+            if (custPaid>0) {
+                customer.updateBalance(vendingInventory.getInventory().get(productNum).getPrice());
+            }
+
+            //subtract product price from custBalance
         } while (customer.getBalance() > 0);
     }
 }
