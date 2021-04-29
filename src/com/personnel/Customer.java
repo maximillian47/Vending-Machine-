@@ -21,7 +21,7 @@ public class Customer {
         setBalance();
     }
 
-    //Setter
+    //Setter & Getters
     public void setBalance() { //One setter to rule them all
 
         nickelCount = randomCash(10);
@@ -41,8 +41,20 @@ public class Customer {
         custBalance = _balance;
     }
 
+    public double getPriceToPay() {
+        return priceToPay;
+    }
+
+    public void updateBalance(double change){
+        custBalance = custBalance-change;
+    }
+
+    public double getBalance() {
+        return custBalance;
+    }
+
     // Business Methods
-    public int randomCash(int count){
+    private int randomCash(int count){
         Random rand = new Random();
         return rand.nextInt(count)+1;
     }
@@ -59,18 +71,5 @@ public class Customer {
 
         }
     }
-
-    public double getPriceToPay() {
-        return priceToPay;
-    }
-
-    public void updateBalance(double change){
-        custBalance = custBalance-change;
-    }
-
-    public double getBalance() {
-        return custBalance;
-    }
-
 
 }
