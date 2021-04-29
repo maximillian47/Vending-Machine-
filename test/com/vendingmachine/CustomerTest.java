@@ -1,7 +1,8 @@
 package com.vendingmachine;
 
 import com.personnel.Customer;
-import org.testng.annotations.Test;
+import org.junit.Test;
+
 
 import static org.junit.Assert.assertEquals;
 
