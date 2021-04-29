@@ -3,11 +3,10 @@ package com.vendingmachine;
 import java.util.Objects;
 
 public class Product {
+    //Instance Fields
     private int productID;
     private String productName;
     private double price;
-
-
 
     //Constructor
     public Product(int productID, String productName, double price) {

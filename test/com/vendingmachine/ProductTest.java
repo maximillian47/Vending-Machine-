@@ -13,7 +13,7 @@ public class ProductTest {
             Product prod1 = new Product(productID, "fanta", 1.50);
         }
 
-        @Test(expected = IllegalArgumentException.class)
+        @Test
         public void productIDTestPositiveNUmber(){
             int productID = 7;
             Product prod1 = new Product(productID, "fanta", 1.50);
@@ -51,7 +51,6 @@ public class ProductTest {
             Product prod1 = new Product(7, "redbull", 1.204);
             assertEquals(expectedProductPrice, prod1.getPrice(), .001);
     }
-
 }
 
 

@@ -7,7 +7,6 @@ import java.util.*;
 public class VendingMachineClient {
     public static void main(String[] args) {
 
-
         VendingMachine vendingInventory = new VendingMachine();
         Customer customer = new Customer();
 
@@ -19,11 +18,9 @@ public class VendingMachineClient {
 
             System.out.println("Customer Wallet Balance: $" + customer.getBalance());
 
-            
-            vendingInventory.collectPay(vendingInventory.getPricePaid());
+            vendingInventory.collectPay();
             customer.pay(vendingInventory.getPricePaid());
             System.out.println("You have " + customer.getPriceToPay() + " credit.");
-
 
             Scanner inputSelection = new Scanner(System.in);
             System.out.println("Please make selection:");
@@ -32,8 +29,11 @@ public class VendingMachineClient {
             while(true) {
                 try {
                     productNum = Integer.parseInt(inputSelection.nextLine());
+                    if (productNum <= 0.0 || productNum > vendingInventory.getInventory().size()+1 ) {
+                        throw new IllegalArgumentException("Selection must be a positive number!");
+                    }
                     break;
-                } catch (NumberFormatException nfe) {
+                } catch (IllegalArgumentException nfe) {
                     System.out.println(" Please select a product: ");
                 }
             }
