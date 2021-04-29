@@ -1,7 +1,7 @@
 package com.vendingmachine;
-import static org.junit.Assert.assertEquals;
 import org.junit.Test;
-import org.junit.Assert;
+
+import static org.junit.Assert.assertEquals;
 
 
 public class ProductTest {
@@ -15,7 +15,7 @@ public class ProductTest {
 
         @Test
         public void productIDTestPositiveNUmber(){
-            int productID = 7;
+            int productID = 6;
             Product prod1 = new Product(productID, "fanta", 1.50);
         }
 
