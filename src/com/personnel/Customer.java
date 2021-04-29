@@ -51,7 +51,12 @@ public class Customer {
     public void pay(double priceToPayArg) {
         double truncatedPriceArg = Math.floor(priceToPayArg * 100)/100;
         if (truncatedPriceArg>0) {
-            priceToPay = truncatedPriceArg;
+            if (truncatedPriceArg >= custBalance) {
+                priceToPay = custBalance;
+            } else {
+                priceToPay = truncatedPriceArg;
+            }
+
         }
     }
 
