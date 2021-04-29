@@ -65,7 +65,6 @@ public class Customer {
     }
 
     public void updateBalance(double change){
-
         custBalance = custBalance-change;
     }
 
