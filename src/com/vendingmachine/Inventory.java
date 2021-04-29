@@ -66,16 +66,20 @@ public class Inventory implements VendingMachine{
     public void selectProduct(int _selectedProductID) {
         if (pricePaid < inventory.get(_selectedProductID).getPrice()) {
             customerChange = pricePaid;
-            System.out.println("Insufficient fund, refund issued:" + getCustomerChange());
+            System.out.println("Insufficient fund, refund issued: " + getCustomerChange());
 
-        } else if (pricePaid>=inventory.get(_selectedProductID).getPrice()) {
+        } else if (pricePaid>=inventory.get(_selectedProductID).getPrice() && stockQuantity.get(_selectedProductID)>0) {
             stockQuantity.replace(_selectedProductID, stockQuantity.get(_selectedProductID)-1);
             customerChange = pricePaid - inventory.get(_selectedProductID).getPrice();
             System.out.println("You have purchased one " + inventory.get(_selectedProductID).getProductName());
             System.out.println(stockQuantity.get(_selectedProductID) + " remaining.");
             System.out.println("Here is your change: $" + getCustomerChange());
             System.out.println();
-           }
+           } else if (stockQuantity.get(_selectedProductID)<=0) {
+            customerChange = pricePaid;
+            System.out.println(inventory.get(_selectedProductID).getProductName() +" is out of stock. Please select another item!");
+            System.out.println("Refund issued: "+ getCustomerChange());
+        }
     }
 
 
