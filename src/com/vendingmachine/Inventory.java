@@ -1,11 +1,10 @@
 package com.vendingmachine;
 import com.personnel.Customer;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Inventory implements VendingMachine{
+
 
 
     private double pricePaid;
@@ -50,13 +49,33 @@ public class Inventory implements VendingMachine{
     }
 
 
-    public void collectPay(double _pricePaid) throws IllegalArgumentException{
-        if (_pricePaid > 0.0) {
-            pricePaid = _pricePaid;
-        } else {
-            throw new IllegalArgumentException("Please enter a positive amount to pay for the item...");
+    public void collectPay(double _pricePaid) {
+        boolean reEnter = true;
+
+        Scanner inputPay = new Scanner(System.in);
+
+        while( reEnter) {
+            try {
+                System.out.println("Please input payment amount: ");
+                _pricePaid = Double.parseDouble(inputPay.nextLine());
+                pricePaid = _pricePaid;
+                reEnter = false;
+                if (_pricePaid <= 0.0) {
+                    throw new IllegalArgumentException("Payment must be a positive number!");
+                }
+
+            } catch (IllegalArgumentException i) {
+                System.out.println("Please enter a positive amount to pay for the item...");
+                reEnter = true;
+            }
         }
     }
+
+    public double getPricePaid() {
+        return pricePaid;
+    }
+
+
 
     public double getCustomerChange() {
         return customerChange;

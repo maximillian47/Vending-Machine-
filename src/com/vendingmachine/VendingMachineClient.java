@@ -1,6 +1,7 @@
 package com.vendingmachine;
 import com.personnel.Customer;
 
+
 import java.util.*;
 
 public class VendingMachineClient {
@@ -18,23 +19,9 @@ public class VendingMachineClient {
 
             System.out.println("Customer Wallet Balance: $" + customer.getBalance());
 
-
-            double customerPaid = 0;
-            Scanner inputPayment = new Scanner(System.in);
-            System.out.println("Please input payment amount: ");
-            while (true) {
-
-                try {
-                    customerPaid = Double.parseDouble(inputPayment.nextLine());
-                    break;
-                } catch (NumberFormatException nfe) {
-                    System.out.println(" Please input payment amount: ");
-
-                }
-            }
-
-            vendingInventory.collectPay(customerPaid);
-            customer.pay(customerPaid);
+            
+            vendingInventory.collectPay(vendingInventory.getPricePaid());
+            customer.pay(vendingInventory.getPricePaid());
             System.out.println("You have " + customer.getPriceToPay() + " credit.");
 
 
