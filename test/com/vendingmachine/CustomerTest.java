@@ -1,11 +1,12 @@
 package com.vendingmachine;
 
 import com.personnel.Customer;
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 import static org.junit.Assert.assertEquals;
 
 public class CustomerTest {
+
 
     private Customer cust1;
 
@@ -26,5 +27,17 @@ public class CustomerTest {
         double actualValue = -1.95;
         cust2.pay(actualValue);
         assertEquals(expectedOutput, cust2.getPriceToPay(), .001);
+    }
+
+    @Test
+    public void payThePriceOverBalance() {
+        Customer cust3 = new Customer();
+        double actualCustomerBalance = cust3.getBalance();
+        double expectedCustomerBalance = cust3.getPriceToPay();
+        double valueOverPriceToPay = 500;
+
+        cust3.pay(valueOverPriceToPay);
+
+        assertEquals(actualCustomerBalance, expectedCustomerBalance, .001);
     }
 }
