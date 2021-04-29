@@ -80,8 +80,8 @@ public class VendingMachine {
 
     public void selectProduct(int _selectedProductID) {
             if (pricePaid < inventory.get(_selectedProductID).getPrice()) {
-                customerChange = pricePaid;
-                System.out.println("Insufficient fund, refund issued: " + getCustomerChange());
+                customerChange = -pricePaid;
+                System.out.println("Insufficient fund, refund issued: " + (-getCustomerChange()));
             } else if (pricePaid >= inventory.get(_selectedProductID).getPrice() && stockQuantity.get(_selectedProductID) > 0) {
                 stockQuantity.replace(_selectedProductID, stockQuantity.get(_selectedProductID) - 1);
                 customerChange = pricePaid - inventory.get(_selectedProductID).getPrice();
