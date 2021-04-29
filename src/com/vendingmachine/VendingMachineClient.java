@@ -8,12 +8,12 @@ public class VendingMachineClient {
     public static void main(String[] args) {
 
 
-        Inventory vendingInventory = new Inventory();
+        VendingMachine vendingInventory = new VendingMachine();
         Customer customer = new Customer();
 
         do {
             System.out.println("Midlife Crisis Vending Machines!");
-//            vendingInventory.getInventory();
+
             vendingInventory.displayInventory();
             System.out.println("\n");
 
